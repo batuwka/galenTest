@@ -1,23 +1,22 @@
-package com.galenframework.java.sample.components;
+package com.luxurypresence.tests;
 
 import com.galenframework.testng.GalenTestNgTestBase;
+import com.luxurypresence.browsers.WebDriverFactory;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.DataProvider;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import static java.util.Arrays.asList;
 
 public abstract class GalenTestBase extends GalenTestNgTestBase {
 
-    private static final String ENV_URL = "http://testapp.galenframework.com";
-
     @Override
     public WebDriver createDriver(Object[] args) {
-        System.setProperty("webdriver.chrome.driver", "D:\\tat\\chromedriver_win32\\chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
+        WebDriver driver = new WebDriverFactory().getDriverByType("chrome");
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         if (args.length > 0) {
             if (args[0] != null && args[0] instanceof TestDevice) {
                 TestDevice device = (TestDevice)args[0];
@@ -30,15 +29,15 @@ public abstract class GalenTestBase extends GalenTestNgTestBase {
     }
 
     public void load(String uri) {
-        getDriver().get(ENV_URL + uri);
+        getDriver().get(uri);
     }
 
     @DataProvider(name = "devices")
     public Object [][] devices () {
         return new Object[][] {
-                {new TestDevice("mobile", new Dimension(450, 800), asList("mobile"))},
-                {new TestDevice("tablet", new Dimension(750, 800), asList("tablet"))},
-                {new TestDevice("desktop", new Dimension(1024, 800), asList("desktop"))}
+//                {new TestDevice("mobile", new Dimension(450, 800), asList("mobile"))},
+//                {new TestDevice("tablet", new Dimension(750, 800), asList("tablet"))},
+                {new TestDevice("desktop", new Dimension(1600, 1200), asList("desktop"))}
         };
     }
 
