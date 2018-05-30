@@ -14,16 +14,9 @@ import static java.util.Arrays.asList;
 
 public abstract class GalenTestBase extends GalenTestNgTestBase {
 
-    WebDriverFactory webDriverFactory;
-
-    @BeforeSuite
-    public void setupWebDriverCapabilities(){
-        this.webDriverFactory = new WebDriverFactory();
-        webDriverFactory.setupSystemDrivers();
-    }
-
     @Override
     public WebDriver createDriver(Object[] args) {
+        WebDriverFactory webDriverFactory = new WebDriverFactory();
         WebDriver driver = webDriverFactory.getDriverByType("chrome");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         if (args.length > 0) {
