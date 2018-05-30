@@ -13,7 +13,8 @@ public class BasePageObject {
 
     private final Wait<WebDriver> wait;
 
-    protected String supportIframeRemoveJavaScript = "document.getElementsByTagName('iframe')[0].remove();";
+    protected String iFrameRemoveJavaScript = "document.getElementsByTagName('iframe')[0].remove();";
+    protected String removeBackgroundVideoJavaScript = "document.getElementsByTagName('video')[0].remove();";
 
     public BasePageObject(WebDriver driver) {
         this.driver = driver;
@@ -29,7 +30,20 @@ public class BasePageObject {
         ((JavascriptExecutor) driver).executeScript(javaScript);
     }
 
+    protected void setElementAttributeByTagName(String tagName, String attr, String val){
+        ((JavascriptExecutor) driver).executeScript("document.getElementsByTagName('" + tagName + "').setAttribute('" + attr + "', '" + val + "'));");
+    }
+
+    protected void stopVideoByTagName(String tagName){
+        String jscript = "document.getElementsByTagName('" + tagName + "')[0].pause();";
+        ((JavascriptExecutor) driver).executeScript(jscript);
+    }
+
     protected void waitUntilElementNotVisible(WebElement element){
         wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
+    protected WebDriver getDriver(){
+        return this.driver;
     }
 }

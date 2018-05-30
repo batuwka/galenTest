@@ -6,8 +6,6 @@ import org.openqa.selenium.WebDriver;
 
 public class WebDesignPageObject extends BasePageObject {
 
-    private final WebDriver driver;
-
     HeaderPageObject headerPageObject;
 
     //Buttons
@@ -15,7 +13,6 @@ public class WebDesignPageObject extends BasePageObject {
 
     public WebDesignPageObject(WebDriver driver) {
         super(driver);
-        this.driver = driver;
         headerPageObject = new HeaderPageObject(driver);
         if (!"Luxury Real Estate Website Design by Luxury Presence".equals(driver.getTitle())) {
             throw new IllegalStateException("This is not the Website Design by Luxury Presence page");
@@ -23,10 +20,10 @@ public class WebDesignPageObject extends BasePageObject {
     }
 
     public void clickViewOurPortfolioButton(){
-        driver.findElement(viewOurPortfolioButton).click();
+        getDriver().findElement(viewOurPortfolioButton).click();
     }
 
     public void removeSupportIframe(){
-        removeElementFromDom(supportIframeRemoveJavaScript);
+        removeElementFromDom(iFrameRemoveJavaScript);
     }
 }

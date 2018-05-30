@@ -57,7 +57,9 @@
             </property>
           </properties>
           <suiteXmlFiles>
-            <suiteXmlFile>src/test/resources/suites/luxuryPresenceSuite.xml</suiteXmlFile>
+            <!--<suiteXmlFile>src/test/resources/suites/luxuryPresenceSuite.xml</suiteXmlFile>-->
+            <!--<suiteXmlFile>src/test/resources/suites/jadeMillsSuite.xml</suiteXmlFile>-->
+            <suiteXmlFile>src/test/resources/suites/allCustomersSuite.xml</suiteXmlFile>
           </suiteXmlFiles>
         </configuration>
       </plugin>

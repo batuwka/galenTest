@@ -13,18 +13,14 @@ public class HeaderPageObject extends BasePageObject {
     //Buttons
     By webDesignButton = By.xpath(".//a[contains(text(),'Web Design')]");
 
-    private final WebDriver driver;
-
     public HeaderPageObject(WebDriver driver) {
         super(driver);
-        this.driver = driver;
-
         if (!driver.findElement(menuPanel).isDisplayed() && !driver.findElement(mobileMenu).isDisplayed()) {
             throw new IllegalStateException("Menu header is absent");
         }
     }
 
     protected void clickWebDesignButton(){
-        driver.findElement(menuPanel).findElement(webDesignButton).click();
+        getDriver().findElement(menuPanel).findElement(webDesignButton).click();
     }
 }

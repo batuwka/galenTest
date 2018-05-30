@@ -19,11 +19,9 @@ public class MainPageObject extends BasePageObject {
     //Buttons
     By webDesignButton = By.xpath("//*[@id='page-content']//a[contains(text(),'Web Design')]");
 
-    private final WebDriver driver;
 
     public MainPageObject(WebDriver driver) {
         super(driver);
-        this.driver = driver;
         headerPageObject = new HeaderPageObject(driver);
         if (!"Luxury Presence - Award-Winning Real Estate Websites & Marketing".equals(driver.getTitle())) {
             throw new IllegalStateException("This is not the main Luxury Presence page");
@@ -35,29 +33,29 @@ public class MainPageObject extends BasePageObject {
     }
 
     public WebDesignPageObject clickWebDesignButton(){
-        driver.findElement(webDesignButton).click();
-        return new WebDesignPageObject(driver);
+        getDriver().findElement(webDesignButton).click();
+        return new WebDesignPageObject(getDriver());
     }
 
     public void clickCloseSupportWidgetButton(){
-        waitUntilElementNotVisible(driver.findElement(supportIframe));
-        driver.switchTo().frame(driver.findElement(supportIframe));
-        waitUntilElementNotVisible(driver.findElement(supportWidgetButton));
+        waitUntilElementNotVisible(getDriver().findElement(supportIframe));
+        getDriver().switchTo().frame(getDriver().findElement(supportIframe));
+        waitUntilElementNotVisible(getDriver().findElement(supportWidgetButton));
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        driver.findElement(supportWidgetButton).click();
-        driver.switchTo().defaultContent();
+        getDriver().findElement(supportWidgetButton).click();
+        getDriver().switchTo().defaultContent();
     }
 
     public WebElement getSupportIframeElement (){
-        return driver.findElement(supportIframe);
+        return getDriver().findElement(supportIframe);
     }
 
     public void removeSupportIframe(){
-        waitUntilElementNotVisible(driver.findElement(supportIframe));
-        removeElementFromDom(supportIframeRemoveJavaScript);
+        waitUntilElementNotVisible(getDriver().findElement(supportIframe));
+        removeElementFromDom(iFrameRemoveJavaScript);
     }
 }
