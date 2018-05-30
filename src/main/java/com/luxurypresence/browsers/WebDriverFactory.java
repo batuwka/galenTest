@@ -28,7 +28,7 @@ public class WebDriverFactory {
                 System.setProperty("webdriver.chrome.driver", "drivers/chromedriver_linux");
                 break;
             default:
-                System.setProperty("webdriver.chrome.driver", "drivers/chromedriver_win");
+                System.setProperty("webdriver.chrome.driver", "drivers/chromedriver_win.exe");
         }
     }
 
