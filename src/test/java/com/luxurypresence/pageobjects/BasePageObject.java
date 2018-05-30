@@ -13,6 +13,8 @@ public class BasePageObject {
 
     private final Wait<WebDriver> wait;
 
+    protected String supportIframeRemoveJavaScript = "document.getElementsByTagName('iframe')[0].remove();";
+
     public BasePageObject(WebDriver driver) {
         this.driver = driver;
         wait = new FluentWait<>(driver).withMessage("Element was not found").withTimeout(10, TimeUnit.SECONDS).pollingEvery(500, TimeUnit.MILLISECONDS);
@@ -21,6 +23,10 @@ public class BasePageObject {
     protected void scrollToElement(WebElement element){
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
         waitUntilElementNotVisible(element);
+    }
+
+    protected void removeElementFromDom(String javaScript){
+        ((JavascriptExecutor) driver).executeScript(javaScript);
     }
 
     protected void waitUntilElementNotVisible(WebElement element){

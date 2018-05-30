@@ -3,6 +3,7 @@ package com.luxurypresence.pageobjects.customers.luxurypresence;
 import com.luxurypresence.pageobjects.BasePageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class MainPageObject extends BasePageObject {
 
@@ -49,5 +50,13 @@ public class MainPageObject extends BasePageObject {
         }
         driver.findElement(supportWidgetButton).click();
         driver.switchTo().defaultContent();
+    }
+
+    public WebElement getSupportIframeElement (){
+        return driver.findElement(supportIframe);
+    }
+
+    public void removeSupportIframe(){
+        removeElementFromDom(supportIframeRemoveJavaScript);
     }
 }

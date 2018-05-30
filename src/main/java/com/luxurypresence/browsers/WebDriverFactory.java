@@ -10,8 +10,20 @@ public class WebDriverFactory {
     public WebDriverFactory() {
     }
 
-    private void setupSystemDrivers(){
-        System.setProperty("webdriver.chrome.driver", "D:\\tat\\chromedriver_win32\\chromedriver.exe");
+    private void setupSystemDrivers() {
+        switch (System.getProperty("system")) {
+            case "win":
+                System.setProperty("webdriver.chrome.driver", "drivers/chromedriver_win.exe");
+                break;
+            case "mac":
+                System.setProperty("webdriver.chrome.driver", "drivers/chromedriver_mac");
+                break;
+            case "linux":
+                System.setProperty("webdriver.chrome.driver", "drivers/chromedriver_linux");
+                break;
+            default:
+                System.setProperty("webdriver.chrome.driver", "drivers/chromedriver_win");
+        }
     }
 
     public WebDriver getDriverByType(String type){

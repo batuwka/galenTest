@@ -15,8 +15,8 @@ public class WebDesignPageTest extends GalenTestBase {
     public void mainPage_imageComparison_onDevice(TestDevice device) throws IOException {
         load("http://www.luxurypresence.com/");
         this.mainPageObject = new MainPageObject(getDriver());
-        mainPageObject.clickCloseSupportWidgetButton();
         webDesignPageObject = mainPageObject.clickWebDesignButton();
+        webDesignPageObject.removeSupportIframe();
         checkLayout("/specs/customers/luxurypresence/webDesignPage/webDesignPage.spec", device.getTags());
     }
 }

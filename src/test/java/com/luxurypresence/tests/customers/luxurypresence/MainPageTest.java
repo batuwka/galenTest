@@ -13,7 +13,7 @@ public class MainPageTest extends GalenTestBase {
     public void mainPage_imageComparison_onDevice(TestDevice device) throws IOException {
         load("http://www.luxurypresence.com/");
         this.mainPageObject = new MainPageObject(getDriver());
-        mainPageObject.clickCloseSupportWidgetButton();
+        mainPageObject.removeSupportIframe();
         checkLayout("/specs/customers/luxurypresence/mainPage/mainPageScreenshot.spec", device.getTags());
     }
 }

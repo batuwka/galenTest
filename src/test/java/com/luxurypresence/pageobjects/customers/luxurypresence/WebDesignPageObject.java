@@ -25,4 +25,8 @@ public class WebDesignPageObject extends BasePageObject {
     public void clickViewOurPortfolioButton(){
         driver.findElement(viewOurPortfolioButton).click();
     }
+
+    public void removeSupportIframe(){
+        removeElementFromDom(supportIframeRemoveJavaScript);
+    }
 }
