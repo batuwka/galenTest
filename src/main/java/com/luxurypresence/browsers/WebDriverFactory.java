@@ -11,13 +11,22 @@ public class WebDriverFactory {
     }
 
     private void setupSystemDrivers() {
-        switch (System.getProperty("system")) {
-            case "win":
+        System.out.println(System.getProperty("os.name"));
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        switch (System.getProperty("os.name")) {
+            case "Windows 10":
                 System.setProperty("webdriver.chrome.driver", "drivers/chromedriver_win.exe");
                 break;
+            case "Windows 8.1":
+                System.setProperty("webdriver.chrome.driver", "drivers/chromedriver_win.exe");
+                break;
+                //TODO add Mac names
             case "mac":
                 System.setProperty("webdriver.chrome.driver", "drivers/chromedriver_mac");
                 break;
+                //TODO add Linux names
             case "linux":
                 System.setProperty("webdriver.chrome.driver", "drivers/chromedriver_linux");
                 break;
