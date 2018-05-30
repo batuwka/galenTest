@@ -11,10 +11,7 @@ public class WebDriverFactory {
     }
 
     private void setupSystemDrivers() {
-        System.out.println(System.getProperty("os.name"));
-        System.out.println("");
-        System.out.println("");
-        System.out.println("");
+
         switch (System.getProperty("os.name")) {
             case "Windows 10":
                 System.setProperty("webdriver.chrome.driver", "drivers/chromedriver_win.exe");
