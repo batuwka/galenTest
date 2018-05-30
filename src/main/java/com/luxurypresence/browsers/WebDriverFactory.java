@@ -10,11 +10,8 @@ public class WebDriverFactory {
     public WebDriverFactory() {
     }
 
-    public void setupSystemDrivers() {
-        System.out.println(System.getProperty("os.name"));
-        System.out.println("");
-        System.out.println("");
-        System.out.println("");
+    private void setupSystemDrivers() {
+
         switch (System.getProperty("os.name")) {
             case "Windows 10":
                 System.setProperty("webdriver.chrome.driver", "drivers/chromedriver_win.exe");
@@ -31,12 +28,12 @@ public class WebDriverFactory {
                 System.setProperty("webdriver.chrome.driver", "drivers/chromedriver_linux");
                 break;
             default:
-                System.out.println("===!!!Cant find driver by system type!!!=== " + System.getProperty("os.name") + " \n=== Setting browser type for win ===");
-                System.setProperty("webdriver.chrome.driver", "drivers/chromedriver_win.exe");
+                System.setProperty("webdriver.chrome.driver", "drivers/chromedriver_win");
         }
     }
 
     public WebDriver getDriverByType(String type){
+        setupSystemDrivers();
         switch (type) {
             case "chrome":
                 this.driver = new ChromeDriver();

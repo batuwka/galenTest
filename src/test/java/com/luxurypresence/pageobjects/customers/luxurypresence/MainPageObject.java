@@ -57,6 +57,7 @@ public class MainPageObject extends BasePageObject {
     }
 
     public void removeSupportIframe(){
+        waitUntilElementNotVisible(driver.findElement(supportIframe));
         removeElementFromDom(supportIframeRemoveJavaScript);
     }
 }
