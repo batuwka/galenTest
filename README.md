@@ -9,7 +9,7 @@ https://www.jademillsestates.com/
 http://kristinregan.org.teamluxurypresence.com/
 
 <br />
-*debug* all
+*debug* all<br />
 mvn clean test -P main -DforkCount=0<br />
-*run* custom
+*run* custom<br />
 mvn clean test -P Jade_Mills
