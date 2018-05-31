@@ -24,12 +24,14 @@ public class JadeMillsMainPageObject extends BasePageObject {
         }
     }
 
-    public void clickOurPropertiesHeaderButton(){
+    public JadeMillsPropertiesPageObject clickOurPropertiesHeaderButton(){
         jadeMillsHeaderPageObject.clickOurPropertiesButton();
+        return new JadeMillsPropertiesPageObject(getDriver());
     }
 
-    public void clickMLSSearchHeaderButton(){
+    public JadeMillsMLSSearchPageObject clickMLSSearchHeaderButton(){
         jadeMillsHeaderPageObject.clickMLSSearchButton();
+        return new JadeMillsMLSSearchPageObject(getDriver());
     }
 
     public void clickContactHeaderButton(){

@@ -1,5 +1,6 @@
 package com.luxurypresence.pageobjects;
 
+import com.luxurypresence.url.CustomersUrl;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -18,7 +19,7 @@ public class BasePageObject {
 
     public BasePageObject(WebDriver driver) {
         this.driver = driver;
-        wait = new FluentWait<>(driver).withMessage("Element was not found").withTimeout(10, TimeUnit.SECONDS).pollingEvery(500, TimeUnit.MILLISECONDS);
+        wait = new FluentWait<>(driver).withMessage("Element was not found").withTimeout(30, TimeUnit.SECONDS).pollingEvery(500, TimeUnit.MILLISECONDS);
     }
 
     protected void scrollToElement(WebElement element){

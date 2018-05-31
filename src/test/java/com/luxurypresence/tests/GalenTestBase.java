@@ -2,6 +2,7 @@ package com.luxurypresence.tests;
 
 import com.galenframework.testng.GalenTestNgTestBase;
 import com.luxurypresence.browsers.WebDriverFactory;
+import com.luxurypresence.url.CustomersUrl;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeSuite;
@@ -13,6 +14,8 @@ import java.util.concurrent.TimeUnit;
 import static java.util.Arrays.asList;
 
 public abstract class GalenTestBase extends GalenTestNgTestBase {
+
+    public CustomersUrl customersUrl = new CustomersUrl();
 
     @Override
     public WebDriver createDriver(Object[] args) {

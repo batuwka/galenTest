@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Suite" parallel="tests" thread-count="3">
+<suite name="Suite" parallel="tests" thread-count="5">
 
     <!--Main site tests-->
     <test name="MainPageTest" group-by-instances="true">
@@ -19,6 +19,16 @@
     <test name="JadeMillsMainPageTest" group-by-instances="true">
         <classes>
             <class name="com.luxurypresence.tests.customers.jademills.JadeMillsMainPageTest"/>
+        </classes>
+    </test>
+    <test name="JadeMillsPropertiesPageTest" group-by-instances="true">
+        <classes>
+            <class name="com.luxurypresence.tests.customers.jademills.JadeMillsPropertiesPageTest"/>
+        </classes>
+    </test>
+    <test name="JadeMillsProperJadeMillsMLSSearchTesttiesPageTest" group-by-instances="true">
+        <classes>
+            <class name="com.luxurypresence.tests.customers.jademills.JadeMillsMLSSearchTest"/>
         </classes>
     </test>
 </suite>

@@ -13,7 +13,7 @@ public class WebDesignPageTest extends GalenTestBase {
 
     @Test(dataProvider = "devices")
     public void mainPage_imageComparison_onDevice(TestDevice device) throws IOException {
-        load("http://www.luxurypresence.com/");
+        load(customersUrl.LUXURY_PRESENCE_URL);
         this.mainPageObject = new MainPageObject(getDriver());
         webDesignPageObject = mainPageObject.clickWebDesignButton();
         webDesignPageObject.removeSupportIframe();
