@@ -8,7 +8,8 @@ http://thefridmangroup.com/
 https://www.jademillsestates.com/
 http://kristinregan.org.teamluxurypresence.com/
 
+<br />
 *debug* all
-mvn clean test -P main -DforkCount=0
+mvn clean test -P main -DforkCount=0<br />
 *run* custom
 mvn clean test -P Jade_Mills
