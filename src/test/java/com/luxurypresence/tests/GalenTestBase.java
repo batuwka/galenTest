@@ -5,7 +5,6 @@ import com.luxurypresence.browsers.WebDriverFactory;
 import com.luxurypresence.url.CustomersUrl;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
 
 import java.util.List;
@@ -20,7 +19,7 @@ public abstract class GalenTestBase extends GalenTestNgTestBase {
     @Override
     public WebDriver createDriver(Object[] args) {
         WebDriverFactory webDriverFactory = new WebDriverFactory();
-        WebDriver driver = webDriverFactory.getDriverByType("chrome");
+        WebDriver driver = webDriverFactory.getDriverByType("chrome",true);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         if (args.length > 0) {
             if (args[0] != null && args[0] instanceof TestDevice) {

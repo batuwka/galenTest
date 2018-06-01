@@ -7,14 +7,14 @@
             <class name="com.luxurypresence.tests.customers.jademills.JadeMillsMainPageTest"/>
         </classes>
     </test>
-    <test name="JadeMillsPropertiesPageTest" group-by-instances="true">
-        <classes>
-            <class name="com.luxurypresence.tests.customers.jademills.JadeMillsPropertiesPageTest"/>
-        </classes>
-    </test>
-    <test name="JadeMillsProperJadeMillsMLSSearchTesttiesPageTest" group-by-instances="true">
-        <classes>
-            <class name="com.luxurypresence.tests.customers.jademills.JadeMillsMLSSearchTest"/>
-        </classes>
-    </test>
+    <!--<test name="JadeMillsPropertiesPageTest" group-by-instances="true">-->
+        <!--<classes>-->
+            <!--<class name="com.luxurypresence.tests.customers.jademills.JadeMillsPropertiesPageTest"/>-->
+        <!--</classes>-->
+    <!--</test>-->
+    <!--<test name="JadeMillsProperJadeMillsMLSSearchTesttiesPageTest" group-by-instances="true">-->
+        <!--<classes>-->
+            <!--<class name="com.luxurypresence.tests.customers.jademills.JadeMillsMLSSearchTest"/>-->
+        <!--</classes>-->
+    <!--</test>-->
 </suite>

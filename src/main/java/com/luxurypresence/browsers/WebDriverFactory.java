@@ -2,6 +2,7 @@ package com.luxurypresence.browsers;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class WebDriverFactory {
 
@@ -32,13 +33,25 @@ public class WebDriverFactory {
         }
     }
 
-    public WebDriver getDriverByType(String type){
+    public WebDriver getDriverByType(String type, boolean headless){
         setupSystemDrivers();
         switch (type) {
             case "chrome":
+                if (headless) {
+                    ChromeOptions options = new ChromeOptions();
+                    options.addArguments("headless");
+                    this.driver = new ChromeDriver(options);
+                    return driver;
+                }
                 this.driver = new ChromeDriver();
                 return driver;
             default:
+                if (headless) {
+                    ChromeOptions options = new ChromeOptions();
+                    options.addArguments("headless");
+                    this.driver = new ChromeDriver(options);
+                    return driver;
+                }
                 this.driver = new ChromeDriver();
                 return driver;
         }
